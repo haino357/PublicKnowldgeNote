@@ -1,166 +1,6 @@
-# Clean Architecture + Riverpod + MVVM 初期開発ガイド
+# 8. API 接続とデータアクセス
 
-この資料は「初回のアプリ開発時に迷わない」ことを目的に、最小構成で **Clean Architecture + Riverpod + MVVM** を立ち上げる手順と設計ルールをまとめたもの。
-
----
-
-## 1. 前提と採用理由
-
-- **Clean Architecture**: 変更に強い。Domain を中心に依存を一方向にする。
-- **Riverpod**: DI と状態管理を両立。テストが容易。
-- **MVVM**: Presentation を View と ViewModel に分割し、UIロジックを集約。
-
----
-
-## 2. レイヤ構成（役割の分離）
-
-```
-Presentation (UI, ViewModel)
-        |
-Domain (Entity, UseCase, Repository Interface)
-        |
-Data (Repository Impl, DataSource, DTO)
-```
-
-- **Presentation**: UI (Widget) と ViewModel（状態・入力処理）
-- **Domain**: ルールの中心。Entity と UseCase、Repository の抽象
-- **Data**: 外部データ取得（API/DB/キャッシュ）と変換（DTO -> Entity）
-
-依存方向: Presentation → Domain ← Data  
-Data は Domain に依存し、Presentation には依存しない。Domain はどのレイヤにも依存しない。
-- Data は Domain の抽象（Repository インターフェースなど）に依存し、それらを実装する（Repository Impl）  
-
----
-
-## 3. ディレクトリ構成（例）
-
-```
-lib/
-  app/
-    app.dart
-    router.dart
-    di/
-      providers.dart
-  presentation/
-    feature_x/
-      view/
-        feature_x_page.dart
-      viewmodel/
-        feature_x_viewmodel.dart
-      widgets/
-        feature_x_card.dart
-  domain/
-    feature_x/
-      entities/
-        item.dart
-      repositories/
-        item_repository.dart
-      usecases/
-        fetch_items.dart
-  data/
-    feature_x/
-      datasources/
-        item_remote_data_source.dart
-      models/
-        item_dto.dart
-      repositories/
-        item_repository_impl.dart
-  core/
-    error/
-      exceptions.dart
-      failures.dart
-    network/
-      api_client.dart
-    utils/
-      result.dart
-```
-
----
-
-## 4. 初期セットアップ手順
-
-1. **依存追加**
-   - Riverpod（state管理/DI）
-   - Freezed or Equatable（値オブジェクト）
-   - Dio/Chopper（API）
-2. **app/di** で Provider を定義
-3. feature 単位で **Presentation/Domain/Data** を作成
-4. ViewModel から UseCase を呼び、UseCase が Repository を介して Data にアクセス
-
----
-
-## 5. 基本設計ルール
-
-### Presentation
-- ViewModel は `StateNotifier` / `Notifier` を使う
-- UI から直接 Repository を呼ばない
-- View は状態監視とイベント通知のみ
-
-### Domain
-- UseCase は 1つの操作のみを担当
-- Repository は抽象クラス/インターフェースのみ
-
-### Data
-- Remote/Local DataSource を分割
-- DTO と Entity の変換を行う
-- Repository Impl で Domain を満たす
-
----
-
-## 6. ViewModel と UseCase の最小サンプル
-
-### UseCase
-```dart
-class FetchItems {
-  FetchItems(this._repo);
-  final ItemRepository _repo;
-
-  Future<List<Item>> call() {
-    return _repo.fetchItems();
-  }
-}
-```
-
-### ViewModel
-```dart
-class FeatureXViewModel extends StateNotifier<AsyncValue<List<Item>>> {
-  FeatureXViewModel(this._fetchItems) : super(const AsyncLoading());
-
-  final FetchItems _fetchItems;
-
-  Future<void> load() async {
-    state = const AsyncLoading();
-    state = await AsyncValue.guard(_fetchItems.call);
-  }
-}
-```
-
----
-
-## 7. Provider 定義例
-
-```dart
-final apiClientProvider = Provider((ref) => ApiClient());
-
-final itemRepositoryProvider = Provider<ItemRepository>(
-  (ref) => ItemRepositoryImpl(ref.read(apiClientProvider)),
-);
-
-final fetchItemsProvider = Provider(
-  (ref) => FetchItems(ref.read(itemRepositoryProvider)),
-);
-
-final featureXViewModelProvider =
-    StateNotifierProvider<FeatureXViewModel, AsyncValue<List<Item>>>(
-  (ref) => FeatureXViewModel(ref.read(fetchItemsProvider)),
-);
-```
-
----
-
-## 8. API 接続の実装フロー（Dio例）
-
-### 8-1. Base URL と Dio の用意
+## 8-1. Base URL と Dio の用意
 環境ごとに baseUrl を切り替えられるようにしておく（Flavor / dotenv など）。
 
 ```dart
@@ -190,7 +30,7 @@ final dioProvider = Provider((ref) {
 final apiClientProvider = Provider((ref) => ApiClient(ref.read(dioProvider)));
 ```
 
-### 8-2. API クライアント（薄いラッパー）
+## 8-2. API クライアント（薄いラッパー）
 ```dart
 // core/network/api_client.dart
 class ApiClient {
@@ -206,7 +46,7 @@ class ApiClient {
 }
 ```
 
-### 8-3. Remote DataSource
+## 8-3. Remote DataSource
 ```dart
 // data/feature_x/datasources/item_remote_data_source.dart
 abstract class ItemRemoteDataSource {
@@ -228,7 +68,7 @@ class ItemRemoteDataSourceImpl implements ItemRemoteDataSource {
 }
 ```
 
-### 8-4. Repository Impl（DTO → Entity 変換）
+## 8-4. Repository Impl（DTO → Entity 変換）
 ```dart
 // data/feature_x/repositories/item_repository_impl.dart
 class ItemRepositoryImpl implements ItemRepository {
@@ -243,7 +83,7 @@ class ItemRepositoryImpl implements ItemRepository {
 }
 ```
 
-### 8-5. DTO → Entity
+## 8-5. DTO → Entity
 ```dart
 // data/feature_x/models/item_dto.dart
 class ItemDto {
@@ -263,7 +103,7 @@ class ItemDto {
 }
 ```
 
-### 8-6. Provider の接続
+## 8-6. Provider の接続
 ```dart
 final itemRemoteDataSourceProvider = Provider<ItemRemoteDataSource>(
   (ref) => ItemRemoteDataSourceImpl(ref.read(apiClientProvider)),
@@ -274,12 +114,12 @@ final itemRepositoryProvider = Provider<ItemRepository>(
 );
 ```
 
-### 8-7. エラーハンドリングの置き場所
+## 8-7. エラーハンドリングの置き場所
 - **Data 層**: DioException → Exception に変換  
 - **Domain 層**: Exception → Failure などの抽象化  
 - **Presentation**: Failure を UI 表示に変換
 
-### 8-8. Failure / Exception の最小実装例
+## 8-8. Failure / Exception の最小実装例
 ```dart
 // core/error/exceptions.dart
 class ServerException implements Exception {
@@ -355,10 +195,10 @@ class ItemRemoteDataSourceImpl implements ItemRemoteDataSource {
 }
 ```
 
-### 8-9. LocalDataSource + Cache の実装パターン
+## 8-9. LocalDataSource + Cache の実装パターン
 基本方針は **Repository がキャッシュ戦略を決める**。DataSource は単純に読み書きのみ。
 
-#### 8-9-1. Local DataSource
+### 8-9-1. Local DataSource
 ```dart
 // data/feature_x/datasources/item_local_data_source.dart
 abstract class ItemLocalDataSource {
@@ -407,7 +247,7 @@ class ItemLocalDataSourceImpl implements ItemLocalDataSource {
 }
 ```
 
-#### 8-9-2. Repository でキャッシュ戦略を制御
+### 8-9-2. Repository でキャッシュ戦略を制御
 ```dart
 // data/feature_x/repositories/item_repository_impl.dart
 class ItemRepositoryImpl implements ItemRepository {
@@ -443,7 +283,7 @@ class ItemRepositoryImpl implements ItemRepository {
 }
 ```
 
-#### 8-9-3. Provider 追加例
+### 8-9-3. Provider 追加例
 ```dart
 final keyValueStoreProvider = Provider<KeyValueStore>(
   (ref) => SharedPrefsStore(), // 実体はアプリに合わせて差し替え
@@ -453,8 +293,6 @@ final itemLocalDataSourceProvider = Provider<ItemLocalDataSource>(
   (ref) => ItemLocalDataSourceImpl(ref.read(keyValueStoreProvider)),
 );
 ```
-
----
 
 ## 8-10. Result/Either で Failure を返すパターン
 例として簡易 Result を用意し、Repository が Failure を返す構成。
@@ -518,8 +356,6 @@ class FetchItems {
   }
 }
 ```
-
----
 
 ## 8-11. ViewModel で Failure を UI 表示に変換する例
 ### 8-11-1. 表示用の UIState
@@ -606,32 +442,3 @@ class FeatureXPage extends ConsumerWidget {
   }
 }
 ```
-
----
-
-## 9. 初期実装のチェックリスト
-
-- [ ] Feature 単位でレイヤを分離している
-- [ ] Presentation が Domain にしか依存していない
-- [ ] Repository は interface と impl を分離
-- [ ] DTO → Entity 変換が Data に閉じている
-- [ ] ViewModel に UI ロジックが集約されている
-- [ ] UseCase が単一責任になっている
-
----
-
-## 10. よくある落とし穴
-
-- ViewModel が UseCase ではなく Repository を直接呼ぶ
-- Entity と DTO を混ぜて使う
-- UseCase が大きくなりすぎる
-- Presentation から Data を参照する
-
----
-
-## 11. 次のステップ
-
-- エラーハンドリング設計（Failure/Exception）
-- API キャッシュ（Local DataSource）
-- 自動生成（Freezed/JsonSerializable）
-- テスト方針（UseCase/Repository/ViewModel）
