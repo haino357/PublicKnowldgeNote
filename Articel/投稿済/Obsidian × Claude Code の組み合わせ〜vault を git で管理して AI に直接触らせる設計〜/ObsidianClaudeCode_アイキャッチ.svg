@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Obsidian vaultをgit管理しClaude Codeに直接触らせる設計</title>
+  <desc id="desc">Obsidian、Git、Claude Codeが同じvaultを扱い、ノートを使える状態に保つ概念図</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+      <path d="M2 2 L12 7 L2 12 Z" fill="#475569"/>
+    </marker>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { font: 700 58px -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans CJK JP", sans-serif; fill: #111827; letter-spacing: 0; }
+      .subtitle { font: 500 26px -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans CJK JP", sans-serif; fill: #475569; letter-spacing: 0; }
+      .label { font: 700 28px -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans CJK JP", sans-serif; fill: #111827; letter-spacing: 0; }
+      .small { font: 500 20px -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans CJK JP", sans-serif; fill: #475569; letter-spacing: 0; }
+      .tiny { font: 600 17px -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans CJK JP", sans-serif; fill: #64748b; letter-spacing: 0; }
+      .panel { fill: #ffffff; stroke: #e2e8f0; stroke-width: 2; filter: url(#shadow); }
+      .arrow { stroke: #475569; stroke-width: 5; fill: none; marker-end: url(#arrow); stroke-linecap: round; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1600" height="900"/>
+  <rect x="70" y="70" width="1460" height="760" rx="34" fill="#ffffff" stroke="#e5e7eb" stroke-width="2"/>
+
+  <text x="120" y="170" class="title">Obsidian × Claude Code</text>
+  <text x="120" y="220" class="subtitle">vaultをgit管理し、AIが同じノート群を直接扱う設計</text>
+
+  <g transform="translate(150 310)">
+    <rect class="panel" x="0" y="0" width="330" height="250" rx="26"/>
+    <circle cx="82" cy="83" r="42" fill="#7c3aed"/>
+    <path d="M66 62 L98 62 L112 94 L82 120 L52 94 Z" fill="#ffffff" opacity="0.92"/>
+    <text x="58" y="170" class="label">Obsidian</text>
+    <text x="50" y="207" class="small">自分がノートを書く</text>
+  </g>
+
+  <g transform="translate(635 290)">
+    <rect class="panel" x="0" y="0" width="330" height="290" rx="26"/>
+    <rect x="58" y="54" width="214" height="124" rx="18" fill="#f1f5f9" stroke="#94a3b8" stroke-width="3"/>
+    <path d="M92 104 H238 M92 138 H206" stroke="#475569" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="109" cy="215" r="22" fill="#f97316"/>
+    <circle cx="167" cy="215" r="22" fill="#22c55e"/>
+    <circle cx="225" cy="215" r="22" fill="#0ea5e9"/>
+    <text x="82" y="255" class="label">Git管理</text>
+  </g>
+
+  <g transform="translate(1120 310)">
+    <rect class="panel" x="0" y="0" width="330" height="250" rx="26"/>
+    <circle cx="84" cy="84" r="42" fill="#10b981"/>
+    <path d="M62 89 C78 50 112 57 111 88 C110 119 75 121 62 89 Z" fill="#ffffff"/>
+    <path d="M91 63 C112 78 114 100 99 118" fill="none" stroke="#10b981" stroke-width="8" stroke-linecap="round"/>
+    <text x="54" y="170" class="label">Claude Code</text>
+    <text x="50" y="207" class="small">接続・更新を補助</text>
+  </g>
+
+  <path class="arrow" d="M500 435 C560 405 590 405 620 420"/>
+  <path class="arrow" d="M985 420 C1030 405 1065 410 1100 435"/>
+
+  <g transform="translate(222 640)">
+    <rect x="0" y="0" width="1156" height="86" rx="22" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="40" y="35" class="tiny">目指す状態</text>
+    <text x="40" y="67" class="subtitle">情報を溜めるだけでなく、AIと一緒に「使える状態」を保つ</text>
+  </g>
+</svg>
