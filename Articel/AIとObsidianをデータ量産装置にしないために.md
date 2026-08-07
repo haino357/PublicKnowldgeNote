@@ -9,6 +9,7 @@ tags:
   - note
 投稿先: note
 投稿先URL: https://note.com/hainote/n/nbc0e7727883f?app_launch=false
+status: published
 ---
 
 # AIとObsidianをデータ量産装置にしないために

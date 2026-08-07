@@ -13,6 +13,7 @@ tags:
   - claude-code
   - knowledge-management
 aliases:
+status: published
 ---
 
 # Obsidian × Claude Code の組み合わせ〜vault を Git で管理して AI に直接触らせる設計〜

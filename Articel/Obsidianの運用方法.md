@@ -9,6 +9,7 @@ tags:
   - 運用
 投稿先: note
 投稿記事リンク: https://note.com/hainote/n/n057f2a761272?app_launch=false
+status: published
 ---
 # Obsidianの運用方法
 
@@ -178,6 +179,5 @@ flowchart TD
 まだ改善途中ではありますが、少なくとも「何を書けばいいか分からない」「書いたけど活かせない」という状態はかなり減りました。
 
 もしObsidianの運用に迷っているなら、まずは `日次` と `INBOX` から始めてみるのがおすすめです。
-
 
 

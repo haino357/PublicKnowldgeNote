@@ -8,6 +8,7 @@ tags:
   - ナレッジ管理
 投稿先: note
 投稿先URL: https://note.com/hainote/n/nd7abca25da89?app_launch=false
+status: published
 ---
 ![[Obsidianは「保管庫」ではなく「変換装置」として使う_サムネイル.png]]
 

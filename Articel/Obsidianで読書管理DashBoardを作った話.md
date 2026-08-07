@@ -9,6 +9,7 @@ tags:
   - 知識管理
 投稿先: note
 投稿先URL: https://note.com/hainote/n/naaa2e7b512ae?app_launch=false
+status: published
 ---
 ![[Obsidianで読書管理DashBoardを作った話_サムネイル.png]]
 # Obsidianで読書管理DashBoardを作った話
