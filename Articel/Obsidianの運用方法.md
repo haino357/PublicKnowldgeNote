@@ -10,6 +10,7 @@ tags:
 投稿先: note
 投稿記事リンク: https://note.com/hainote/n/n057f2a761272?app_launch=false
 status: published
+投稿先URL: https://note.com/hainote/n/n057f2a761272
 ---
 # Obsidianの運用方法
 

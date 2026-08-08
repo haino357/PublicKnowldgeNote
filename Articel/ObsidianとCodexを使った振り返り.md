@@ -6,6 +6,7 @@ tags:
   - note
 投稿先: note
 status: published
+投稿先URL: https://note.com/hainote/n/nb7a38d1e1560
 ---
 ## デイリーノートの継続
 Obsidianで毎日デイリーノートを取り続けて、すでに3ヶ月以上が経ちました。  
