@@ -1,0 +1,134 @@
+filters:
+  and:
+    - file.inFolder("PublicKnowldgeNote/Articel")
+    - file.ext == "md"
+    - file.name != "_Article DashBoard"
+    - file.name != "README"
+formulas:
+  status_label: if(status == "published", "✅ 公開済み", if(status == "ready", "🚀 公開待ち", if(status == "draft", "✍️ 執筆中", if(status == "idea", "💡 アイデア", "⚠️ 要確認"))))
+  days_since_update: (today() - file.mtime).days
+  attention_reason: if(status.isEmpty(), "status 未設定", if(status != "idea" && status != "draft" && status != "ready" && status != "published", "status 想定外", if(status == "published" && note["post date"].isEmpty(), "投稿日未入力", if(status == "published" && 投稿先.isEmpty(), "投稿先未入力", if(status == "published" && 投稿先URL.isEmpty(), "URL未入力", "")))))
+properties:
+  status:
+    displayName: ステータス
+  formula.status_label:
+    displayName: 状態
+  formula.days_since_update:
+    displayName: 更新からの日数
+  formula.attention_reason:
+    displayName: 要確認理由
+  post date:
+    displayName: 投稿日
+  投稿先:
+    displayName: 投稿先
+  投稿先URL:
+    displayName: 公開URL
+  file.mtime:
+    displayName: 最終更新
+views:
+  - type: table
+    name: 要確認
+    filters:
+      and:
+        - "!formula.attention_reason.isEmpty()"
+    order:
+      - file.name
+      - formula.attention_reason
+      - formula.status_label
+      - post date
+      - 投稿先
+      - 投稿先URL
+      - file.mtime
+    sort:
+      - property: formula.attention_reason
+        direction: ASC
+      - property: file.name
+        direction: ASC
+    columnSize:
+      file.name: 430
+      formula.attention_reason: 160
+      投稿先URL: 360
+  - type: table
+    name: 公開待ち
+    filters:
+      and:
+        - status == "ready"
+    order:
+      - file.name
+      - formula.status_label
+      - formula.days_since_update
+      - file.mtime
+      - tags
+    sort:
+      - property: file.mtime
+        direction: ASC
+    columnSize:
+      file.name: 430
+  - type: table
+    name: 執筆中
+    filters:
+      and:
+        - status == "draft"
+    order:
+      - file.name
+      - formula.status_label
+      - formula.days_since_update
+      - file.mtime
+      - tags
+    sort:
+      - property: file.mtime
+        direction: ASC
+    columnSize:
+      file.name: 430
+  - type: table
+    name: アイデア
+    filters:
+      and:
+        - status == "idea"
+    order:
+      - file.name
+      - formula.status_label
+      - formula.days_since_update
+      - file.mtime
+      - tags
+    sort:
+      - property: file.mtime
+        direction: DESC
+    columnSize:
+      file.name: 430
+  - type: table
+    name: 公開済み
+    filters:
+      and:
+        - status == "published"
+    order:
+      - file.name
+      - post date
+      - 投稿先
+      - 投稿先URL
+      - tags
+    sort:
+      - property: post date
+        direction: DESC
+    columnSize:
+      file.name: 430
+      投稿先URL: 360
+  - type: table
+    name: 全件
+    order:
+      - file.name
+      - formula.status_label
+      - formula.days_since_update
+      - post date
+      - 投稿先
+      - 投稿先URL
+      - file.mtime
+      - tags
+    sort:
+      - property: status
+        direction: ASC
+      - property: file.mtime
+        direction: DESC
+    columnSize:
+      file.name: 430
+      投稿先URL: 360
