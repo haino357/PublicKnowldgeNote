@@ -5,6 +5,8 @@ updated: 2026-05-17
 post date: 2026-05-17
 投稿先: note
 投稿先URL: https://note.com/hainote/n/n1c969e6a89aa?app_launch=false
+スキ数: 1
+反応取得日: 2026-08-08
 category: technical-article
 tags:
   - article

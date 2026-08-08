@@ -6,6 +6,8 @@ tags:
 投稿先: はてなブログ
 status: published
 投稿先URL: https://hai-haino.hatenablog.com/entry/2026/02/22/210741
+スター数: 0
+反応取得日: 2026-08-08
 ---
 # GitLab式ドキュメント運用を個人に移植する。いつでも参照できるハンドブック
 

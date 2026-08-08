@@ -11,6 +11,8 @@ tags:
 投稿記事リンク: https://note.com/hainote/n/n057f2a761272?app_launch=false
 status: published
 投稿先URL: https://note.com/hainote/n/n057f2a761272
+スキ数: 10
+反応取得日: 2026-08-08
 ---
 # Obsidianの運用方法
 

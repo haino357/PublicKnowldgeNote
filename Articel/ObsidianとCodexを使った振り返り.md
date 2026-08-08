@@ -7,6 +7,8 @@ tags:
 投稿先: note
 status: published
 投稿先URL: https://note.com/hainote/n/nb7a38d1e1560
+スキ数: 3
+反応取得日: 2026-08-08
 ---
 ## デイリーノートの継続
 Obsidianで毎日デイリーノートを取り続けて、すでに3ヶ月以上が経ちました。  

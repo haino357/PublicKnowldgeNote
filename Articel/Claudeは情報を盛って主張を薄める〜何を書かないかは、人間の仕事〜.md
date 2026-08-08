@@ -8,6 +8,8 @@ tags:
   - ライティング
 投稿先: note
 投稿先URL: https://note.com/hainote/n/n117c3adb479f?app_launch=false
+スキ数: 1
+反応取得日: 2026-08-08
 status: published
 ---
 ![[Claudeは情報を盛って主張を薄める〜何を書かないかは、人間の仕事〜.png]]

@@ -4,6 +4,8 @@ post date: 2026-04-04
 tags:
 投稿先: note
 投稿先URL: https://note.com/hainote/n/nb6051b86b6d0?app_launch=false
+スキ数: 2
+反応取得日: 2026-08-08
 status: published
 ---
 # AI時代に残るITエンジニア像を想像する

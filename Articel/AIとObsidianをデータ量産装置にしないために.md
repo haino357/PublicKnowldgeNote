@@ -9,6 +9,8 @@ tags:
   - note
 投稿先: note
 投稿先URL: https://note.com/hainote/n/nbc0e7727883f?app_launch=false
+スキ数: 1
+反応取得日: 2026-08-08
 status: published
 ---
 
