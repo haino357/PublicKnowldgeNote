@@ -6,12 +6,12 @@ tags:
   - Bases
   - 知識管理
   - PKM
-status: ready
-post date:
+status: published
+post date: 2026-08-11
 投稿先: note
-投稿先URL:
+投稿先URL: https://note.com/hainote/n/n260ae38c1078?app_launch=false
 ---
-
+![[Obsidianのノート管理は「フォルダ中心」から「Dashboard中心」へ_サムネイル.png]]
 # Obsidianのノート管理は「フォルダ中心」から「Dashboard中心」へ
 
 ## はじめに
