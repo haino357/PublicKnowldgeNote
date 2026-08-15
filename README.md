@@ -9,7 +9,7 @@
 | カテゴリ | 説明 |
 |---|---|
 | [AiCodeAssistant](#-aicodeassistant) | AI コードアシスタント関連ノート |
-| [Articel](#-articel) | 投稿済み記事 |
+| [Articel](#-articel) | `status`で進捗を管理する記事 |
 | [Develop](#-develop) | 開発ノウハウ・テンプレート |
 | [Flutter](#-flutter) | Flutter 開発ノート |
 | [MacRelatedSettings](#-macrelatedsettings) | Mac 環境設定 |
@@ -28,6 +28,8 @@
 ---
 
 ## 📝 Articel
+
+- [記事管理ルール](PublicKnowldgeNote/Articel/README.md)
 
 ### 投稿済み
 
