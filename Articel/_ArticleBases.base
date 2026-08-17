@@ -6,7 +6,7 @@ filters:
     - file.name != "README"
 formulas:
   status_label: if(status == "published", "✅ 公開済み", if(status == "ready", "🚀 公開待ち", if(status == "draft", "✍️ 執筆中", if(status == "idea", "💡 アイデア", "⚠️ 要確認"))))
-  days_since_update: (today() - file.mtime).days
+  days_since_update: (today() - file.mtime).days.round(0)
   attention_reason: if(status.isEmpty(), "status 未設定", if(status != "idea" && status != "draft" && status != "ready" && status != "published", "status 想定外", if(status == "published" && note["post date"].isEmpty(), "投稿日未入力", if(status == "published" && 投稿先.isEmpty(), "投稿先未入力", if(status == "published" && 投稿先URL.isEmpty(), "URL未入力", "")))))
   reaction_count: if(投稿先 == "note", スキ数, if(投稿先 == "はてなブログ", スター数, ""))
   reaction_type: if(投稿先 == "note", "スキ", if(投稿先 == "はてなブログ", "スター", ""))

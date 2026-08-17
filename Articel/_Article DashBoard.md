@@ -2,7 +2,7 @@
 title: Article Dashboard
 type: article-dashboard
 created: 2026-08-08
-updated: 2026-08-08
+updated: 2026-08-17T00:00:00
 tags:
   - article
   - dashboard
