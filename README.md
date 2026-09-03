@@ -1,108 +1,111 @@
 # PublicKnowldgeNote
 
-個人の技術ノート・記事をまとめたナレッジベースです。
+個人の技術ノート、公開記事、再利用できる知識、Webコンテンツをまとめた公開ナレッジベースです。
 
----
+## 🔗 主な入口
+
+- [GitHub Pages 公開トップ](https://haino357.github.io/PublicKnowldgeNote/)
+- [初心者向けカメラ選びガイド](https://haino357.github.io/PublicKnowldgeNote/camera-guide/)
+- [記事ダッシュボード](Articel/_Article%20DashBoard.md)
+- [記事管理ルール](Articel/README.md)
 
 ## 📂 ディレクトリ構成
 
-| カテゴリ | 説明 |
+| ディレクトリ | 役割 |
 |---|---|
-| [AiCodeAssistant](#-aicodeassistant) | AI コードアシスタント関連ノート |
-| [Articel](#-articel) | `status`で進捗を管理する記事 |
-| [Develop](#-develop) | 開発ノウハウ・テンプレート |
-| [Flutter](#-flutter) | Flutter 開発ノート |
-| [MacRelatedSettings](#-macrelatedsettings) | Mac 環境設定 |
-| [mobile](#-mobile) | モバイル開発全般 |
-| [Template](#-template) | テンプレート集 |
-| [VSCode](#-vscode) | VSCode 設定・Tips |
+| [`AiCodeAssistant`](AiCodeAssistant/) | AIコードアシスタントの使い方・設定 |
+| [`Articel`](Articel/) | アイデアから公開済みまでの記事原稿。進捗は`status`で管理 |
+| [`Develop`](Develop/) | 設計原則、CI/CD、開発ノウハウ、テンプレート |
+| [`Flutter`](Flutter/) | Flutterの環境設定、Lint、アーキテクチャガイド |
+| [`Git`](Git/) | Gitの操作・運用ガイド |
+| [`MacRelatedSettings`](MacRelatedSettings/) | macOS、ターミナル、SSH、シェルの設定メモ |
+| [`mobile`](mobile/) | モバイル開発・エミュレータ関連 |
+| [`Template`](Template/) | 再利用する文書テンプレート |
+| [`VSCode`](VSCode/) | VS Codeの設定・同期・Tips |
+| [`docs`](docs/) | GitHub Pagesで公開する静的HTML |
 
----
+## 🌐 GitHub Pages
 
-## 🤖 AiCodeAssistant
+`main`ブランチの`/docs`を公開ルートとして、静的HTMLをGitHub Pagesで配信しています。
 
-- [Codex](AiCodeAssistant/Codex.md)
-- [GitHub Copilot](AiCodeAssistant/GitHubCopilot/GitHub%20Copilot.md)
-- [copilot-instructions](AiCodeAssistant/GitHubCopilot/copilot-instructions.md)
+```text
+docs/
+├── .nojekyll
+├── index.html
+└── camera-guide/
+    └── index.html
+```
 
----
+新しいWebコンテンツは`docs/<page-slug>/index.html`として追加し、`docs/index.html`からリンクします。
 
 ## 📝 Articel
 
-- [記事管理ルール](PublicKnowldgeNote/Articel/README.md)
+記事の進捗は、フォルダ分けではなくFrontmatterの`status`で管理します。詳細は[記事管理ルール](Articel/README.md)を参照してください。
 
-### 投稿済み
+### 最近の公開記事
 
-- [GitLab式ドキュメント運用を個人に移植する。いつでも参照できるハンドブック](Articel/GitLab式ドキュメント運用を個人に移植する。いつでも参照できるハンドブック.md)
-- [ObsidianとCodexを使った振り返り](Articel/ObsidianとCodexを使った振り返り.md)
-- [Obsidianの運用方法](Articel/Obsidianの運用方法.md)
-- [なにかを書こうと思うけど何も書けない](Articel/なにかを書こうと思うけど何も書けない.md)
-- [フロントランナーになれなくてもいい。「第二グループ」で戦うという戦略](Articel/フロントランナーになれなくてもいい。「第二グループ」で戦うという戦略.md)
-- [中途半端に残っているタスクは無駄にリソースを削ぐ](Articel/中途半端に残っているタスクは無駄にリソースを削ぐ.md)
-- [何か目的を持ってインプットしないと身につかない](Articel/何か目的を持ってインプットしないと身につかない.md)
-- [情報をインプットするだけでは価値が小さい](Articel/情報をインプットするだけでは価値が小さい.md)
-- [日々記録して行動することの重要性](Articel/日々記録して行動することの重要性.md)
-- [日本の端の方に行ってみたい](Articel/日本の端の方に行ってみたい.md)
-- [理想通りにいかない中どうすればいいか](Articel/理想通りにいかない中どうすればいいか.md)
-- [生活のパターン化と幸福の最大化](Articel/生活のパターン化と幸福の最大化.md)
+- [働いた時間は何に変わったか——「5つの資」でキャリアを棚卸しする](Articel/働いた時間は何に変わったか——「5つの資」でキャリアを棚卸しする.md)
+- [言語化が難しすぎる——センスではなく手順で解決する4行フォーマット](Articel/言語化が難しすぎる——センスではなく手順で解決する4行フォーマット.md)
+- [Obsidianのノート管理は「フォルダ中心」から「Dashboard中心」へ](Articel/Obsidianのノート管理は「フォルダ中心」から「Dashboard中心」へ.md)
+- [Claudeは情報を盛って主張を薄める〜何を書かないかは、人間の仕事〜](Articel/Claudeは情報を盛って主張を薄める〜何を書かないかは、人間の仕事〜.md)
+- [「できない」を「まだできていない」に思考を変える](Articel/「できない」を「まだできていない」に思考を変える.md)
+- [AIとObsidianをデータ量産装置にしないために](Articel/AIとObsidianをデータ量産装置にしないために.md)
+- [インターネットは「便利な技術」を飛び越えて「文明」になっている](Articel/インターネットは「便利な技術」を飛び越えて「文明」になっている.md)
+- [Obsidianで読書管理DashBoardを作った話](Articel/Obsidianで読書管理DashBoardを作った話.md)
+- [Obsidianは「保管庫」ではなく「変換装置」として使う](Articel/Obsidianは「保管庫」ではなく「変換装置」として使う.md)
+- [記録をとりながら作業することは大切だと思うがなかなか続かない](Articel/記録をとりながら作業することは大切だと思うがなかなか続かない.md)
 
----
+## 🧰 技術ノート
 
-## 🛠 Develop
+### 🤖 AiCodeAssistant
 
+- [GitHub Copilot](AiCodeAssistant/GitHubCopilot/GitHub%20Copilot.md)
+- [copilot-instructions](AiCodeAssistant/GitHubCopilot/copilot-instructions.md)
+
+### 🛠 Develop
+
+- [SOLID原則](Develop/SOLID原則.md)
+- [DRY原則](Develop/DRY原則.md)
 - [CI/CD](Develop/CI_CD.md)
 - [PRテンプレート](Develop/PRテンプレート.md)
 - [開発ノウハウ](Develop/開発ノウハウ.md)
 
----
-
-## 📱 Flutter
+### 📱 Flutter
 
 - [Flutter環境設定](Flutter/00.Flutter環境設定.md)
 - [Flutter lint](Flutter/001.Flutter%20lint.md)
-- [Flutter アーキテクチャ](Flutter/002.Flutter%20アーキテクチャ.md)
-- [Flutter 3.35 リリースノート調査](Flutter/Flutter3.35%20リリースノート調査.md)
+- [CleanArchitecture + Riverpod + MVVM 初期開発ガイド](Flutter/CleanArchitecture_Riverpod_MVVM_初期開発ガイド/00.CleanArchitecture_Riverpod_MVVM_初期開発ガイドINDEX.md)
 
-### CleanArchitecture + Riverpod + MVVM 初期開発ガイド
+### 🌿 Git
 
-- [INDEX](Flutter/CleanArchitecture_Riverpod_MVVM_初期開発ガイド/00.CleanArchitecture_Riverpod_MVVM_初期開発ガイドINDEX.md)
-- [01 前提と採用理由](Flutter/CleanArchitecture_Riverpod_MVVM_初期開発ガイド/01_前提と採用理由.md)
-- [02 レイヤ構成](Flutter/CleanArchitecture_Riverpod_MVVM_初期開発ガイド/02_レイヤ構成.md)
-- [03 ディレクトリ構成](Flutter/CleanArchitecture_Riverpod_MVVM_初期開発ガイド/03_ディレクトリ構成.md)
-- [04 初期セットアップ](Flutter/CleanArchitecture_Riverpod_MVVM_初期開発ガイド/04_初期セットアップ.md)
-- [05 基本設計ルール](Flutter/CleanArchitecture_Riverpod_MVVM_初期開発ガイド/05_基本設計ルール.md)
-- [06 最小サンプル](Flutter/CleanArchitecture_Riverpod_MVVM_初期開発ガイド/06_最小サンプル.md)
-- [07 Provider定義例](Flutter/CleanArchitecture_Riverpod_MVVM_初期開発ガイド/07_Provider定義例.md)
-- [08 API接続とデータアクセス](Flutter/CleanArchitecture_Riverpod_MVVM_初期開発ガイド/08_API接続とデータアクセス.md)
-- [09 初期実装チェックリスト](Flutter/CleanArchitecture_Riverpod_MVVM_初期開発ガイド/09_初期実装チェックリスト.md)
-- [10 よくある落とし穴](Flutter/CleanArchitecture_Riverpod_MVVM_初期開発ガイド/10_よくある落とし穴.md)
+- [git worktreeガイド](Git/git-worktree-guide.md)
 
----
+### 🍎 MacRelatedSettings
 
-## 🍎 MacRelatedSettings
-
-- [Homebrew](MacRelatedSettings/Homebrew.md)
+- [Macショートカットキー](MacRelatedSettings/Macショートカットキー.md)
 - [SSH](MacRelatedSettings/SSH.md)
 - [Shell](MacRelatedSettings/Shell.md)
 - [ターミナル](MacRelatedSettings/ターミナル.md)
 
----
-
-## 📲 mobile
+### 📲 mobile
 
 - [エミュレータ](mobile/エミュレータ.md)
 
----
-
-## 📋 Template
+### 📋 Template
 
 - [アジェンダテンプレート](Template/アジェンダテンプレート.md)
 
----
-
-## 💻 VSCode
+### 💻 VSCode
 
 - [INDEX](VSCode/INDEX.md)
 - [VSCode設定の同期範囲](VSCode/VSCode設定の同期範囲.md)
 - [VSCode設定ファイルの種類の違い](VSCode/VSCode設定ファイルの種類の違い.md)
 - [現在のVSCodeユーザー設定](VSCode/現在のVSCodeユーザー設定.md)
+
+## 運用方針
+
+- 公開可能な情報だけを保存し、認証情報や非公開の業務情報は含めない
+- 記事の進捗は`Articel`内のFrontmatterにある`status`で管理する
+- GitHub Pagesへ公開するHTMLは`docs`へ集約する
+- 外部情報を利用したノートには、確認できる出典やリンクを残す
+- READMEには代表的な入口を掲載し、詳細な一覧は各ディレクトリで管理する
