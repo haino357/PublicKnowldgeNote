@@ -366,6 +366,39 @@
 
     .result p { margin: 0 0 11px; color: #e3edf1; }
     .result .sub { color: #aec6d0; font-size: .92rem; }
+    .result .purpose {
+      margin-top: 10px;
+      padding-top: 14px;
+      color: #d8edf2;
+      border-top: 1px solid rgba(255,255,255,.18);
+      font-size: .9rem;
+    }
+
+    .result .advice {
+      padding: 11px 13px;
+      color: #f3f8fa;
+      border-radius: 11px;
+      background: rgba(255,255,255,.09);
+      font-size: .88rem;
+    }
+
+    .result-link {
+      display: inline-flex;
+      align-self: flex-start;
+      align-items: center;
+      margin-top: 9px;
+      padding: 10px 15px;
+      color: var(--navy);
+      border-radius: 12px;
+      background: #ffcb63;
+      font-size: .9rem;
+      font-weight: 900;
+      text-decoration: none;
+      transition: transform .18s ease, background .18s ease;
+    }
+
+    .result-link:hover { transform: translateY(-2px); background: #ffda89; }
+    .result-link:focus-visible { outline: 3px solid rgba(255,255,255,.7); outline-offset: 3px; }
 
     .category {
       margin-top: 26px;
@@ -558,7 +591,7 @@
         <p class="hero-copy">高い機種より、持ち出したくなる一台を。写真・旅行・動画・光学ファインダーの4方向から、初心者が後悔しにくい選び方をまとめました。</p>
         <nav class="quick-nav" aria-label="ページ内メニュー">
           <a href="#quick">結論を見る</a>
-          <a href="#diagnosis">3問で診断</a>
+          <a href="#diagnosis">4問で診断</a>
           <a href="#compare">候補を比較</a>
           <a href="#shopping">最初に買うもの</a>
         </nav>
@@ -612,18 +645,20 @@
 
     <section id="diagnosis">
       <p class="section-kicker">Mini diagnosis</p>
-      <h2>3問で、自分向きの一台を診断</h2>
-      <p class="section-lead">迷った場合は初期値のまま結果を見てください。初心者の標準的な選択としてEOS R50を表示します。</p>
+      <h2>4問で、自分向きの一台を診断</h2>
+      <p class="section-lead">撮りたい用途、レンズ交換、予算、相談しやすさを選ぶと候補を表示します。迷った場合は初期値のまま、家族や日常を撮る定番重視の標準案を確認してください。</p>
 
       <div class="diagnosis">
         <form class="diagnosis-form" id="camera-form">
           <fieldset>
-            <legend>1. いちばん撮りたいものは？</legend>
+            <legend>1. 主な目的・用途は？</legend>
             <div class="choices">
-              <label class="choice"><input type="radio" name="goal" value="photo" checked><span>日常・人物・写真</span></label>
-              <label class="choice"><input type="radio" name="goal" value="travel"><span>旅行・遠くの景色</span></label>
-              <label class="choice"><input type="radio" name="goal" value="dslr"><span>光学ファインダー</span></label>
+              <label class="choice"><input type="radio" name="goal" value="family" checked><span>家族・子ども・ペット</span></label>
+              <label class="choice"><input type="radio" name="goal" value="travel"><span>旅行・風景</span></label>
+              <label class="choice"><input type="radio" name="goal" value="action"><span>運動会・スポーツ・野鳥</span></label>
+              <label class="choice"><input type="radio" name="goal" value="street"><span>街歩き・日常スナップ</span></label>
               <label class="choice"><input type="radio" name="goal" value="video"><span>YouTube・Vlog</span></label>
+              <label class="choice"><input type="radio" name="goal" value="dslr"><span>光学ファインダーで撮影</span></label>
             </div>
           </fieldset>
 
@@ -643,6 +678,14 @@
               <label class="choice"><input type="radio" name="budget" value="high"><span>20万円前後</span></label>
             </div>
           </fieldset>
+
+          <fieldset>
+            <legend>4. ユーザーの多さ・相談しやすさは？</legend>
+            <div class="choices">
+              <label class="choice"><input type="radio" name="community" value="priority" checked><span>重視する（定番優先）</span></label>
+              <label class="choice"><input type="radio" name="community" value="neutral"><span>用途・機種の個性を優先</span></label>
+            </div>
+          </fieldset>
         </form>
 
         <div class="result" aria-live="polite">
@@ -650,6 +693,9 @@
           <h3 id="result-name">Canon EOS R50</h3>
           <p id="result-reason">写真を学びながら動画も試せる、最もバランスのよい入口です。</p>
           <p class="sub" id="result-note">18-45mmレンズキットから始め、必要が分かってから2本目を追加しましょう。</p>
+          <p class="purpose" id="result-purpose">用途別ポイント：人物・動物検出AFと追従性能を確認し、室内でも扱いやすい軽さを優先しましょう。</p>
+          <p class="advice" id="result-advice">相談しやすさ：◎ 国内で選ばれている定番機で、公式マニュアルや初心者向け情報を見つけやすい候補です。</p>
+          <a class="result-link" id="result-link" href="https://store.canon.jp/online/g/g5812C011/" target="_blank" rel="noopener noreferrer">Canon EOS R50の公式情報を見る ↗</a>
         </div>
       </div>
     </section>
@@ -892,14 +938,80 @@
         <li><a href="https://global.canon/ja/c-museum/product/dslr883.html">Canon EOS Kiss X10</a></li>
         <li><a href="https://nij.nikon.com/products/lineup/slr/d7500/spec.html">Nikon D7500 仕様</a></li>
         <li><a href="https://nij.nikon.com/shop/g/g4960759149091/">Nikon D7500 公式ストア</a></li>
+        <li><a href="https://www.bcnaward.jp/award/section/detail/contents_type%3D254">BCN AWARD 2026 ミラーレス一眼部門</a></li>
+        <li><a href="https://www.bcnretail.com/ranking/research/detail/20260705_640124.html">BCN 2026年上半期 ミラーレス一眼売れ筋</a></li>
+        <li><a href="https://canon.jp/support/manual/eosd/r50">Canon EOS R50 商品マニュアル</a></li>
+        <li><a href="https://msc.sony.jp/ichigan/a-academy/about/">Sony αアカデミー</a></li>
       </ul>
       <p>価格は2026年9月時点の公式掲載価格または確認時点の実売目安です。最新価格、在庫、キャンペーン条件は購入前に各販売店で確認してください。</p>
+      <p>「相談しやすさ」は厳密な利用者数ではありません。国内販売動向、公式マニュアル・講座、継続的な製品情報の見つけやすさから判断した目安です。</p>
     </section>
   </main>
 
   <footer class="wrap">初心者向けカメラ選びガイド｜2026年9月版</footer>
 
   <script>
+    const goalProfiles = {
+      family: {
+        base: "photo",
+        tip: "人物・動物検出AFと追従性能を確認し、室内でも扱いやすい軽さを優先しましょう。"
+      },
+      travel: {
+        base: "travel",
+        tip: "一日持ち歩ける重さ、USB充電、必要なズーム範囲を旅行の荷物と合わせて確認しましょう。"
+      },
+      action: {
+        base: "travel",
+        tip: "望遠域、被写体追従AF、連写性能が重要です。レンズ交換式では望遠レンズの予算も見込みましょう。"
+      },
+      street: {
+        base: "photo",
+        tip: "起動の速さと携帯性を優先します。単焦点機はズームできない画角が自分に合うか試しましょう。"
+      },
+      video: {
+        base: "video",
+        tip: "マイク入力、手ブレ補正、長時間撮影時の発熱を確認し、音声機材の予算も残しましょう。"
+      },
+      dslr: {
+        base: "dslr",
+        tip: "光学ファインダーの見え方、グリップ、重量を店頭で確認し、中古レンズはカビや曇りにも注意しましょう。"
+      }
+    };
+
+    const productLinks = {
+      "Sony α6400": ["https://www.sony.jp/ichigan/products/ILCE-6400/", "Sony α6400の公式情報を見る ↗"],
+      "Panasonic LUMIX TZ99": ["https://panasonic.jp/dc/products/DC-TZ99.html", "LUMIX TZ99の公式情報を見る ↗"],
+      "Canon EOS R50": ["https://store.canon.jp/online/g/g5812C011/", "Canon EOS R50の公式情報を見る ↗"],
+      "Panasonic LUMIX TX3": ["https://panasonic.jp/dc/products/DC-TX3.html", "LUMIX TX3の公式情報を見る ↗"],
+      "Nikon Z50II": ["https://nij.nikon.com/shop/g/g4960759916846/", "Nikon Z50IIの公式情報を見る ↗"],
+      "RICOH GR IV": ["https://www.ricoh-imaging.co.jp/japan/products/gr-4/spec/", "RICOH GR IVの公式情報を見る ↗"],
+      "中古のCanon EOS Kiss X10": ["https://global.canon/ja/c-museum/product/dslr883.html", "EOS Kiss X10の製品情報を見る ↗"],
+      "PENTAX KF": ["https://www.ricoh-imaging.co.jp/japan/products/kf/spec/", "PENTAX KFの公式情報を見る ↗"],
+      "Nikon D7500": ["https://nij.nikon.com/products/lineup/slr/d7500/spec.html", "Nikon D7500の公式情報を見る ↗"],
+      "中古のSony ZV-E10": ["https://www.sony.jp/ichigan/products/ZV-E10/", "Sony ZV-E10の公式情報を見る ↗"],
+      "スマートフォン＋外部マイク": ["#shopping", "最初に買う周辺機材を見る ↓"],
+      "Canon EOS R50 V": ["https://store.canon.jp/online/g/g6895C011/", "Canon EOS R50 Vの公式情報を見る ↗"],
+      "Canon PowerShot V1": ["https://personal.canon.jp/product/compact-digital-camera/powershot/v1", "PowerShot V1の公式情報を見る ↗"],
+      "Sony ZV-E10 II": ["https://www.sony.jp/ichigan/products/ZV-E10M2/", "Sony ZV-E10 IIの公式情報を見る ↗"]
+    };
+
+    const adviceProfiles = {
+      "Sony α6400": "◎ 国内売れ筋上位の定番機で、公式講座や長年の使用例を探しやすい候補です。",
+      "Panasonic LUMIX TZ99": "○ 一台完結型で相談内容を絞りやすく、メーカー公式の製品・サポート情報があります。",
+      "Canon EOS R50": "◎ 2026年上半期の国内売れ筋首位。公式マニュアルや初心者向け情報を見つけやすい候補です。",
+      "Panasonic LUMIX TX3": "○ メーカー公式情報は充実していますが、レンズ交換式の定番機より利用例は機種単位になります。",
+      "Nikon Z50II": "○ 国内売れ筋上位で、ニコンの販売店・公式サポートを利用しやすい候補です。",
+      "RICOH GR IV": "○ スナップ用途の愛好者情報は豊富ですが、固定画角のため相談内容は専門的になりやすい機種です。",
+      "中古のCanon EOS Kiss X10": "○ 長く販売された入門機で過去の解説を探しやすい一方、中古品の状態確認が必要です。",
+      "PENTAX KF": "△ 光学ファインダー派の情報はありますが、定番優先なら中古EOS Kiss X10も比較しましょう。",
+      "Nikon D7500": "○ 長く使われている一眼レフで撮影例を探しやすく、ニコンの公式サポートも確認できます。",
+      "中古のSony ZV-E10": "◎ 2026年上半期も国内売れ筋上位で、動画設定やアクセサリーの情報を探しやすい機種です。",
+      "スマートフォン＋外部マイク": "◎ 利用者と解説情報が非常に多く、身近な人にも相談しやすい構成です。",
+      "Canon EOS R50 V": "○ EOS系の公式サポートを利用でき、写真機から動画へ移る人の情報も参考にできます。",
+      "Canon PowerShot V1": "○ 公式サポートは利用できますが、新しい機種のため長期的な使用例はこれから増える段階です。",
+      "Sony ZV-E10 II": "◎ 2026年上半期の国内売れ筋2位で、公式講座や動画制作者の設定例を探しやすい機種です。"
+    };
+
     const recommendations = {
       photo: {
         low: {
@@ -963,16 +1075,37 @@
     const resultName = document.getElementById("result-name");
     const resultReason = document.getElementById("result-reason");
     const resultNote = document.getElementById("result-note");
+    const resultPurpose = document.getElementById("result-purpose");
+    const resultAdvice = document.getElementById("result-advice");
+    const resultLink = document.getElementById("result-link");
 
     function updateRecommendation() {
       const data = new FormData(form);
-      const goal = data.get("goal");
+      const profile = goalProfiles[data.get("goal")];
       const lens = data.get("lens");
       const budget = data.get("budget");
-      const result = recommendations[goal][budget][lens];
+      const community = data.get("community");
+      let result = recommendations[profile.base][budget][lens];
+      if (community === "priority" && result[0] === "PENTAX KF") {
+        result = ["中古のCanon EOS Kiss X10", "光学ファインダーを楽しみながら、解説や利用例を見つけやすい定番入門機です。", "保証付き中古の18-55mmレンズセットを選び、状態を店頭で確認しましょう。"];
+      }
       resultName.textContent = result[0];
       resultReason.textContent = result[1];
       resultNote.textContent = result[2];
+      resultPurpose.textContent = `用途別ポイント：${profile.tip}`;
+      const advicePrefix = community === "priority" ? "相談しやすさを加味：" : "相談しやすさの参考：";
+      resultAdvice.textContent = `${advicePrefix}${adviceProfiles[result[0]]}`;
+      const link = productLinks[result[0]];
+      resultLink.href = link[0];
+      resultLink.textContent = link[1];
+      const opensExternally = link[0].startsWith("http");
+      if (opensExternally) {
+        resultLink.target = "_blank";
+        resultLink.rel = "noopener noreferrer";
+      } else {
+        resultLink.removeAttribute("target");
+        resultLink.removeAttribute("rel");
+      }
     }
 
     form.addEventListener("change", updateRecommendation);
