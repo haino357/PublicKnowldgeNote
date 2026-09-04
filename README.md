@@ -64,6 +64,7 @@ docs/
 
 ### 🛠 Develop
 
+- [MarkdownをHTMLにしてGitHub Pagesで公開する流れ](Develop/MarkdownをHTMLにしてGitHub%20Pagesで公開する流れ.md)
 - [SOLID原則](Develop/SOLID原則.md)
 - [DRY原則](Develop/DRY原則.md)
 - [CI/CD](Develop/CI_CD.md)
