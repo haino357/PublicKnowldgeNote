@@ -14,10 +14,12 @@
 | ディレクトリ | 役割 |
 |---|---|
 | [`AiCodeAssistant`](AiCodeAssistant/) | AIコードアシスタントの使い方・設定 |
+| [`Android`](Android/) | Android開発の設定・技術メモ |
 | [`Articel`](Articel/) | アイデアから公開済みまでの記事原稿。進捗は`status`で管理 |
 | [`Develop`](Develop/) | 設計原則、CI/CD、開発ノウハウ、テンプレート |
 | [`Flutter`](Flutter/) | Flutterの環境設定、Lint、アーキテクチャガイド |
 | [`Git`](Git/) | Gitの操作・運用ガイド |
+| [`iOS`](iOS/) | iOS開発の設定・技術メモ |
 | [`MacRelatedSettings`](MacRelatedSettings/) | macOS、ターミナル、SSH、シェルの設定メモ |
 | [`mobile`](mobile/) | モバイル開発・エミュレータ関連 |
 | [`Template`](Template/) | 再利用する文書テンプレート |
