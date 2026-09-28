@@ -1,16 +1,16 @@
 ---
-created: "2026-09-27T00:00:00"
+created: 2026-09-27T00:00:00
 tags:
   - Obsidian
   - Dashboard
   - Bases
   - ナレッジ管理
-status: draft
-post date:
-投稿先:
-投稿先URL:
+status: published
+post date: 2026-09-27
+投稿先: note
+投稿先URL: https://note.com/hainote/n/n811a19547173
 ---
-
+![[Dashboardを13枚作って分かった、本体は一覧ではなく状態の遷移だった_サムネイル.excalidraw]]
 # Dashboardを13枚作って分かった、本体は「一覧」ではなく「状態の遷移」だった
 
 %%
