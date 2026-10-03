@@ -2,6 +2,8 @@
 
 個人の技術ノート、公開記事、再利用できる知識、Webコンテンツをまとめた公開ナレッジベースです。
 
+Codexの安全・承認・公開範囲と作業ルールは`AGENTS.md`で確認します。親Vaultがない単独cloneやGit worktreeでも、このリポジトリ内のルールで運用できます。
+
 ## 🔗 主な入口
 
 - [GitHub Pages 公開トップ](https://haino357.github.io/PublicKnowldgeNote/)
