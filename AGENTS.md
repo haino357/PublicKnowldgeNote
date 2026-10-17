@@ -70,7 +70,7 @@ Markdown内のYAML frontmatterの更新は、通常のノート編集に含む�
 
 ## 共通部分の更新
 
-共通安全ルールの版は`2026-10-03.1`。`COMMON-SAFETY`の開始・終了マーカー内は、親Vaultと4リポジトリで同じ内容を保持する。同期対象は親Vaultの`AGENTS.md`と、`PrivateKnowldgeNote`・`PublicKnowldgeNote`・`WorkTaskBoard`・`haino357`の各ルートの`AGENTS.md`。
+共通安全ルールの版は`2026-10-03.1`。`COMMON-SAFETY`の開始・終了マーカー内は、親Vaultと5リポジトリで同じ内容を保持する。同期対象は親Vaultの`AGENTS.md`と、`PrivateKnowldgeNote`・`PublicKnowldgeNote`・`WorkTaskBoard`・`haino357`・`KnowledgeWiki`の各ルートの`AGENTS.md`。
 
 - 共通部分の変更時は版番号を更新し、利用できる他の`AGENTS.md`も同じ作業単位で照合・更新する
 - 親Vaultや他リポジトリがない環境では、このリポジトリの変更を完了し、未同期の範囲を完了報告に明記する。Vaultへ戻した際に内容を比較して同期する
