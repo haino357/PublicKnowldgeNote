@@ -60,6 +60,7 @@ Markdown内のYAML frontmatterの更新は、通常のノート編集に含む�
 
 公開可能な技術ノート、記事原稿、再利用する知識、Webコンテンツを管理する公開領域。全体の入口は`README.md`。
 
+- 通常はObsidian形式で作成・管理する。用途や依頼に応じて、Obsidianを介さず読める標準Markdownの`.md`も作成する。その場合はWikilink・Obsidian専用埋め込み・プラグインに依存する表示を通常のMarkdownリンク・画像・本文へ置き換え、対象ファイルと添付素材だけで読めるようにする
 - 公開リポジトリ内の下書きも公開可能な内容として扱い、個人情報、認証情報、非公開の業務情報を含めない。非公開資料を参照する場合は、公開してよい範囲だけを原稿へ反映する
 - 記事は`Articel/README.md`に従い、進捗をfrontmatterの`status`（`idea`・`draft`・`ready`・`published`）で管理する。進捗の変更だけで移動・改名しない
 - 新規記事は原則`Articel/記事タイトル.md`、技術ノートは既存の該当カテゴリ、Webコンテンツは`docs/<page-slug>/index.html`へ置く。保存先が不明な場合は確認する

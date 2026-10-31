@@ -110,6 +110,7 @@ docs/
 
 ## 運用方針
 
+- 通常はObsidian形式で管理する。用途に応じて、Obsidianを介さず読める標準Markdownの成果物も作成する
 - 公開可能な情報だけを保存し、認証情報や非公開の業務情報は含めない
 - 記事の進捗は`Articel`内のFrontmatterにある`status`で管理する
 - GitHub Pagesへ公開するHTMLは`docs`へ集約する
