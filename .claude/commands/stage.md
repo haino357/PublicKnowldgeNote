@@ -31,7 +31,7 @@ WorkTaskBoard の `/stage` を、PublicKnowldgeNote 向けに調整したもの�
    - **Conventional Commits 接頭辞を必ず付与する**（下記「3. 接頭辞の判定」参照）
    - 接頭辞の後は **日本語の descriptive な件名**、短く（70 文字以内目安）、必要なら本文で詳細
    - 件名のフォーマット：`<type>: <subject>` または `<type>(<scope>): <subject>`
-   - 末尾に `Co-Authored-By: <実行中のClaudeのモデル名> <noreply@anthropic.com>` を入れる（モデル名は固定せず、実行時のセッションのものを使う）
+   - `Co-Authored-By` / `Claude-Session` などのトレーラは付けない（メッセージ案にも実際のコミットにも入れない）
    - 候補は「簡潔版 / scope 付き版 / 情報量増し版（本文あり）」のような切り口で出す
    - 関連性の薄い変更が混ざっている場合は分割提案も併記
 
